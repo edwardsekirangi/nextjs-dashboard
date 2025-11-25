@@ -3,7 +3,7 @@
 ## 📊 Project Information
 
 - **Project Name**: `nextjs-dashboard`
-- **Generated On**: 2025-11-25 16:07:45 (Africa/Nairobi / GMT+03:00)
+- **Generated On**: 2025-11-25 16:16:18 (Africa/Nairobi / GMT+03:00)
 - **Total Files Processed**: 51
 - **Export Tool**: Easy Whole Project to Single Text File for LLMs v1.1.0
 - **Tool Author**: Jota / José Guilherme Pandolfi
@@ -83,7 +83,7 @@
 ├── 📄 postcss.config.js (83 B)
 ├── 📄 README.md (266 B)
 ├── 📄 tailwind.config.ts (649 B)
-└── 📄 tsconfig.json (729 B)
+└── 📄 tsconfig.json (696 B)
 ```
 
 ## 📑 Table of Contents
@@ -142,7 +142,7 @@
 | Total Directories | 13 |
 | Text Files | 41 |
 | Binary Files | 10 |
-| Total Size | 1018.84 KB |
+| Total Size | 1018.81 KB |
 
 ### 📄 File Types Distribution
 
@@ -5263,15 +5263,15 @@ export default config;
 ### <a id="📄-tsconfig-json"></a>📄 `tsconfig.json`
 
 **File Info:**
-- **Size**: 729 B
+- **Size**: 696 B
 - **Extension**: `.json`
 - **Language**: `json`
 - **Location**: `tsconfig.json`
 - **Relative Path**: `root`
 - **Created**: 2025-11-11 06:30:09 (Africa/Nairobi / GMT+03:00)
-- **Modified**: 2025-11-11 06:41:30 (Africa/Nairobi / GMT+03:00)
-- **MD5**: `65f9cf31929dbe0bd2b924094b38c07d`
-- **SHA256**: `00458944ae88c6e37d01c476774c2ee80318d4c18bef10379f518df6f67479eb`
+- **Modified**: 2025-11-25 16:16:18 (Africa/Nairobi / GMT+03:00)
+- **MD5**: `3e8db717a0a79c278722133b7cae06db`
+- **SHA256**: `b422ea52fefa05c5a933db5bd23be5c4694b0ed5d7cd6993e837c1395c56efa3`
 - **Encoding**: ASCII
 
 **File code content:**
@@ -5292,7 +5292,6 @@ export default config;
     "isolatedModules": true,
     "jsx": "preserve",
     "incremental": true,
-    "ignoreDeprecations": "6.0",
     "plugins": [
       {
         "name": "next"
