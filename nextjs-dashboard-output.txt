@@ -5,7 +5,7 @@ PROJECT EXPORT FOR LLMs
 PROJECT INFORMATION:
 --------------------------------------------------
 Project Name: nextjs-dashboard
-Generated On: 2025-11-12 06:19:03 (Africa/Nairobi / GMT+03:00)
+Generated On: 2025-11-25 16:07:45 (Africa/Nairobi / GMT+03:00)
 Total Files Processed: 51
 Export Tool: Easy Whole Project to Single Text File for LLMs v1.1.0
 Tool Author: Jota / José Guilherme Pandolfi
@@ -45,7 +45,7 @@ PROJECT STRUCTURE
 │   │   ├── 📁 dashboard/
 │   │   │   ├── 📄 cards.tsx (1.34 KB)
 │   │   │   ├── 📄 latest-invoices.tsx (2.16 KB)
-│   │   │   ├── 📄 nav-links.tsx (1.32 KB)
+│   │   │   ├── 📄 nav-links.tsx (1.34 KB)
 │   │   │   ├── 📄 revenue-chart.tsx (2.08 KB)
 │   │   │   └── 📄 sidenav.tsx (1.12 KB)
 │   │   ├── 📁 invoices/
@@ -94,7 +94,7 @@ Total Files: 51
 Total Directories: 13
 Text Files: 41
 Binary Files: 10
-Total Size: 1018.82 KB
+Total Size: 1018.84 KB
 
 FILE TYPES DISTRIBUTION:
 ------------------------------
@@ -1349,15 +1349,15 @@ FILE: app/ui/dashboard/nav-links.tsx
 
 FILE INFORMATION:
 ----------------------------------------
-Size: 1.32 KB
+Size: 1.34 KB
 Extension: .tsx
 Language: typescript
 Location: app/ui/dashboard/nav-links.tsx
 Relative Path: app/ui/dashboard
 Created: 2025-11-11 06:30:09 (Africa/Nairobi / GMT+03:00)
-Modified: 2025-11-12 06:19:02 (Africa/Nairobi / GMT+03:00)
-MD5: a63e50e5b2f07fad898d7e2d8ec24a66
-SHA256: cf995867dc0d1f0a77068f7662f431c9d5bcc7acc6957743be35b83a307be10e
+Modified: 2025-11-25 16:07:44 (Africa/Nairobi / GMT+03:00)
+MD5: 376b461e4a249fb6985bb0512d0bdc68
+SHA256: 2ff6fcbe60752468dddf090947f85889ee54063cae62f5e4c3236ea1b70a8b15
 Encoding: ASCII
 
 FILE CONTENT:
@@ -1383,6 +1383,7 @@ const links = [
   { name: 'Customers', href: '/dashboard/customers', icon: UserGroupIcon },
 ];
 
+// testing out databases
 export default function NavLinks() {
   const pathname = usePathname();
   return (
