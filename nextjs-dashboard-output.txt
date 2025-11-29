@@ -5,7 +5,7 @@ PROJECT EXPORT FOR LLMs
 PROJECT INFORMATION:
 --------------------------------------------------
 Project Name: nextjs-dashboard
-Generated On: 2025-11-28 19:11:37 (Africa/Nairobi / GMT+03:00)
+Generated On: 2025-11-29 08:35:54 (Africa/Nairobi / GMT+03:00)
 Total Files Processed: 56
 Export Tool: Easy Whole Project to Single Text File for LLMs v1.1.0
 Tool Author: Jota / José Guilherme Pandolfi
@@ -33,7 +33,7 @@ PROJECT STRUCTURE
 │   │   │   ├── 📁 [id]/
 │   │   │   │   └── 📁 edit/
 │   │   │   │       ├── 📄 not-found.tsx (604 B)
-│   │   │   │       └── 📄 page.tsx (862 B)
+│   │   │   │       └── 📄 page.tsx (828 B)
 │   │   │   ├── 📁 create/
 │   │   │   │   └── 📄 page.tsx (579 B)
 │   │   │   ├── 📄 error.tsx (752 B)
@@ -47,7 +47,7 @@ PROJECT STRUCTURE
 │   ├── 📁 query/
 │   │   └── 📄 route.ts (659 B)
 │   ├── 📁 seed/
-│   │   └── 📄 route.ts (2.9 KB)
+│   │   └── 📄 route.ts (3.19 KB)
 │   ├── 📁 ui/
 │   │   ├── 📁 customers/
 │   │   │   └── 📄 table.tsx (5.13 KB)
@@ -292,15 +292,15 @@ FILE: app/dashboard/invoices/[id]/edit/page.tsx
 
 FILE INFORMATION:
 ----------------------------------------
-Size: 862 B
+Size: 828 B
 Extension: .tsx
 Language: typescript
 Location: app/dashboard/invoices/[id]/edit/page.tsx
 Relative Path: app/dashboard/invoices/[id]/edit
 Created: 2025-11-28 16:16:21 (Africa/Nairobi / GMT+03:00)
-Modified: 2025-11-28 17:09:13 (Africa/Nairobi / GMT+03:00)
-MD5: 314d30d113ca22ddbf5acf522ed9d046
-SHA256: 468c809df7c91fc383976f8d5f0a1d659f8b687e14dc0dd805858616cc621731
+Modified: 2025-11-29 08:35:53 (Africa/Nairobi / GMT+03:00)
+MD5: baa53b98eb6c105e7f5b5317cf3fae10
+SHA256: 87e3d3050059aec60c23dcee83d67c09d4c955a57f849f54239fe0ea3aebf813
 Encoding: ASCII
 
 FILE CONTENT:
@@ -310,9 +310,13 @@ import Breadcrumbs from '@/app/ui/invoices/breadcrumbs';
 import { fetchInvoiceById, fetchCustomers } from '@/app/lib/data';
 import { notFound } from 'next/navigation';
 
-export default async function Page(props: { params: Promise<{ id: string }> }) {
-  const params = await props.params;
+export default async function Page({
+  params,
+}: {
+  params: { id: string };
+}) {
   const id = params.id;
+
   const [invoice, customers] = await Promise.all([
     fetchInvoiceById(id),
     fetchCustomers(),
@@ -1173,136 +1177,136 @@ FILE: app/seed/route.ts
 
 FILE INFORMATION:
 ----------------------------------------
-Size: 2.9 KB
+Size: 3.19 KB
 Extension: .ts
 Language: typescript
 Location: app/seed/route.ts
 Relative Path: app/seed
 Created: 2025-11-11 06:30:09 (Africa/Nairobi / GMT+03:00)
-Modified: 2025-11-11 06:58:48 (Africa/Nairobi / GMT+03:00)
-MD5: f4ae98ba7eb344acfb7bea8c1283a508
-SHA256: 4f37db61c5d8a12ff105637ddb0e1f8ea8b3888991f9904c67afea4c0cc36752
+Modified: 2025-11-29 08:26:48 (Africa/Nairobi / GMT+03:00)
+MD5: b51eac00a9b34830fa2aa3c864abce54
+SHA256: 3f8e1b30e2d5b8dea83618cc506bbc5206ca5395247495290ae8ea103613655d
 Encoding: ASCII
 
 FILE CONTENT:
 ----------------------------------------
-import bcrypt from 'bcrypt';
-import postgres from 'postgres';
-import { invoices, customers, revenue, users } from '../lib/placeholder-data';
+// import bcrypt from 'bcrypt';
+// import postgres from 'postgres';
+// import { invoices, customers, revenue, users } from '../lib/placeholder-data';
 
-const sql = postgres(process.env.POSTGRES_URL!, { ssl: 'require' });
+// const sql = postgres(process.env.POSTGRES_URL!, { ssl: 'require' });
 
-async function seedUsers() {
-  await sql`CREATE EXTENSION IF NOT EXISTS "uuid-ossp"`;
-  await sql`
-    CREATE TABLE IF NOT EXISTS users (
-      id UUID DEFAULT uuid_generate_v4() PRIMARY KEY,
-      name VARCHAR(255) NOT NULL,
-      email TEXT NOT NULL UNIQUE,
-      password TEXT NOT NULL
-    );
-  `;
+// async function seedUsers() {
+//   await sql`CREATE EXTENSION IF NOT EXISTS "uuid-ossp"`;
+//   await sql`
+//     CREATE TABLE IF NOT EXISTS users (
+//       id UUID DEFAULT uuid_generate_v4() PRIMARY KEY,
+//       name VARCHAR(255) NOT NULL,
+//       email TEXT NOT NULL UNIQUE,
+//       password TEXT NOT NULL
+//     );
+//   `;
 
-  const insertedUsers = await Promise.all(
-    users.map(async (user) => {
-      const hashedPassword = await bcrypt.hash(user.password, 10);
-      return sql`
-        INSERT INTO users (id, name, email, password)
-        VALUES (${user.id}, ${user.name}, ${user.email}, ${hashedPassword})
-        ON CONFLICT (id) DO NOTHING;
-      `;
-    })
-  );
+//   const insertedUsers = await Promise.all(
+//     users.map(async (user) => {
+//       const hashedPassword = await bcrypt.hash(user.password, 10);
+//       return sql`
+//         INSERT INTO users (id, name, email, password)
+//         VALUES (${user.id}, ${user.name}, ${user.email}, ${hashedPassword})
+//         ON CONFLICT (id) DO NOTHING;
+//       `;
+//     })
+//   );
 
-  return insertedUsers;
-}
+//   return insertedUsers;
+// }
 
-async function seedInvoices() {
-  await sql`CREATE EXTENSION IF NOT EXISTS "uuid-ossp"`;
+// async function seedInvoices() {
+//   await sql`CREATE EXTENSION IF NOT EXISTS "uuid-ossp"`;
 
-  await sql`
-    CREATE TABLE IF NOT EXISTS invoices (
-      id UUID DEFAULT uuid_generate_v4() PRIMARY KEY,
-      customer_id UUID NOT NULL,
-      amount INT NOT NULL,
-      status VARCHAR(255) NOT NULL,
-      date DATE NOT NULL
-    );
-  `;
+//   await sql`
+//     CREATE TABLE IF NOT EXISTS invoices (
+//       id UUID DEFAULT uuid_generate_v4() PRIMARY KEY,
+//       customer_id UUID NOT NULL,
+//       amount INT NOT NULL,
+//       status VARCHAR(255) NOT NULL,
+//       date DATE NOT NULL
+//     );
+//   `;
 
-  const insertedInvoices = await Promise.all(
-    invoices.map(
-      (invoice) => sql`
-        INSERT INTO invoices (customer_id, amount, status, date)
-        VALUES (${invoice.customer_id}, ${invoice.amount}, ${invoice.status}, ${invoice.date})
-        ON CONFLICT (id) DO NOTHING;
-      `
-    )
-  );
+//   const insertedInvoices = await Promise.all(
+//     invoices.map(
+//       (invoice) => sql`
+//         INSERT INTO invoices (customer_id, amount, status, date)
+//         VALUES (${invoice.customer_id}, ${invoice.amount}, ${invoice.status}, ${invoice.date})
+//         ON CONFLICT (id) DO NOTHING;
+//       `
+//     )
+//   );
 
-  return insertedInvoices;
-}
+//   return insertedInvoices;
+// }
 
-async function seedCustomers() {
-  await sql`CREATE EXTENSION IF NOT EXISTS "uuid-ossp"`;
+// async function seedCustomers() {
+//   await sql`CREATE EXTENSION IF NOT EXISTS "uuid-ossp"`;
 
-  await sql`
-    CREATE TABLE IF NOT EXISTS customers (
-      id UUID DEFAULT uuid_generate_v4() PRIMARY KEY,
-      name VARCHAR(255) NOT NULL,
-      email VARCHAR(255) NOT NULL,
-      image_url VARCHAR(255) NOT NULL
-    );
-  `;
+//   await sql`
+//     CREATE TABLE IF NOT EXISTS customers (
+//       id UUID DEFAULT uuid_generate_v4() PRIMARY KEY,
+//       name VARCHAR(255) NOT NULL,
+//       email VARCHAR(255) NOT NULL,
+//       image_url VARCHAR(255) NOT NULL
+//     );
+//   `;
 
-  const insertedCustomers = await Promise.all(
-    customers.map(
-      (customer) => sql`
-        INSERT INTO customers (id, name, email, image_url)
-        VALUES (${customer.id}, ${customer.name}, ${customer.email}, ${customer.image_url})
-        ON CONFLICT (id) DO NOTHING;
-      `
-    )
-  );
+//   const insertedCustomers = await Promise.all(
+//     customers.map(
+//       (customer) => sql`
+//         INSERT INTO customers (id, name, email, image_url)
+//         VALUES (${customer.id}, ${customer.name}, ${customer.email}, ${customer.image_url})
+//         ON CONFLICT (id) DO NOTHING;
+//       `
+//     )
+//   );
 
-  return insertedCustomers;
-}
+//   return insertedCustomers;
+// }
 
-async function seedRevenue() {
-  await sql`
-    CREATE TABLE IF NOT EXISTS revenue (
-      month VARCHAR(4) NOT NULL UNIQUE,
-      revenue INT NOT NULL
-    );
-  `;
+// async function seedRevenue() {
+//   await sql`
+//     CREATE TABLE IF NOT EXISTS revenue (
+//       month VARCHAR(4) NOT NULL UNIQUE,
+//       revenue INT NOT NULL
+//     );
+//   `;
 
-  const insertedRevenue = await Promise.all(
-    revenue.map(
-      (rev) => sql`
-        INSERT INTO revenue (month, revenue)
-        VALUES (${rev.month}, ${rev.revenue})
-        ON CONFLICT (month) DO NOTHING;
-      `
-    )
-  );
+//   const insertedRevenue = await Promise.all(
+//     revenue.map(
+//       (rev) => sql`
+//         INSERT INTO revenue (month, revenue)
+//         VALUES (${rev.month}, ${rev.revenue})
+//         ON CONFLICT (month) DO NOTHING;
+//       `
+//     )
+//   );
 
-  return insertedRevenue;
-}
+//   return insertedRevenue;
+// }
 
-export async function GET() {
-  try {
-    const result = await sql.begin((sql) => [
-      seedUsers(),
-      seedCustomers(),
-      seedInvoices(),
-      seedRevenue(),
-    ]);
+// export async function GET() {
+//   try {
+//     const result = await sql.begin((sql) => [
+//       seedUsers(),
+//       seedCustomers(),
+//       seedInvoices(),
+//       seedRevenue(),
+//     ]);
 
-    return Response.json({ message: 'Database seeded successfully' });
-  } catch (error) {
-    return Response.json({ error }, { status: 500 });
-  }
-}
+//     return Response.json({ message: 'Database seeded successfully' });
+//   } catch (error) {
+//     return Response.json({ error }, { status: 500 });
+//   }
+// }
 
 ================================================================================
 
