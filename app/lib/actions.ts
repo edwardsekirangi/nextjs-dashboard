@@ -33,7 +33,7 @@ export type State = {
 };
 
 /**
- * Create Invoice
+ * Create Invoices
  */
 export async function createInvoice(prevState: State, formData: FormData) {
   try {
